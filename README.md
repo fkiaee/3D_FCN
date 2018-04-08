@@ -35,10 +35,10 @@ The mode flag determines the training/test/visualization status.
 
 Make sure you're using the tensorflow 0.9.0 version.
 
-1. Download biosig OCT images via [https://arxiv.org/…](https://arxiv.org/...)
+1. Download biosig OCT images via [http://www.biosigdata.com/?download=3d-macular-sd-oct-images](http://www.biosigdata.com/?download=3d-macular-sd-oct-images)
 Or 
 Farsiu OCT images through 
-[https://arxiv.org/…](https://arxiv.org/...)
+[http://people.duke.edu/~sf59/Chiu_BOE_2014_dataset_htm](http://people.duke.edu/~sf59/Chiu_BOE_2014_dataset_htm)
 
 2. Run farsiu_data.m and farsiu_grandtrth.m to generate .mat files containing cropped and resized images (for Farsiu OCT dataset)
 Run biosig_data_grndtrth.m to generate mat files containing cropped and resized images (for Biosig OCT dataset)
