@@ -2,19 +2,16 @@
 # 3D-FCN
 INTRA-RETINAL LAYER SEGMENTATION OF OCT USING 3D FULLY CONVOLUTIONAL NETWORKS
 
-This repository contains an implementation of the INTRA-RETINAL LAYER SEGMENTATION OF OPTICAL COHERENCE TOMOGRAPHY USING 3D FULLY CONVOLUTIONAL NETWORKS introduced by F. Kiaee, H. Rabbani, and H. Fahimi. The original paper can be found at
+This repository contains an implementation of the intra-retinal layer segmentation of optical coherence tomography using 3D fully convolutional networks introduced by F. Kiaee, H. Rabbani, and H. Fahimi. The original paper can be found at
 [https://arxiv.org/…](https://arxiv.org/...)
 
 ## Contents
 
-1. A module that constructs the graph of investiated 3D FCN model in tensorflow  (FCNscratch_3d.py)
+1. A module that constructs the graph of investiated 3D FCN model in tensorflow  (FCN_scratch_3d.py)
 * The function gets the path for reading images (data_dir flag) and also the path for saving ckpt output results (logs_dir flag). If the result path contains previously saved ckpt files, it loads latest of them and continues training. otherwise it initialize weights and starts training.
 The mode flag determines the training/test/visualization status.
-The function also gets the model_id arg that helps to check the effect of different terms in cost function and different decoder setting:
-model_id=0,1,2--> max_unpool decoder setting with 0:standard, 1:weighted, and 2:augmented with Dice score loss function        
-
-model_id=3,4,5--> deconvolution decoder setting with 3:standard, 4:weighted, and 5:augmented with Dice score loss function        
-
+* The function also gets the model_id arg that helps to check the effect of different terms in cost function and different decoder setting: model_id=0,1,2--> max_unpool decoder setting with 0:standard, 1:weighted, and 2:augmented with Dice score loss function
+model_id=3,4,5--> deconvolution decoder setting with 3:standard, 4:weighted, and 5:augmented with Dice score loss function
 model_id=6,7,8--> median_unpool decoder setting with 6:standard, 7:weighted, and 8:augmented with Dice score loss function        
 
 
@@ -34,13 +31,15 @@ Make sure you're using the tensorflow 0.9.0 version.
 Or 
 Farsiu OCT images from 
 [https://arxiv.org/…](https://arxiv.org/...)
-2- Run farsiu_data.m and farsiu_grandtrth.m to generate .mat files containing cropped and resized images (for Farsiu OCT dataset)
+
+2. Run farsiu_data.m and farsiu_grandtrth.m to generate .mat files containing cropped and resized images (for Farsiu OCT dataset)
 Run biosig_data_grndtrth.m to generate mat files containing cropped and resized images (for Biosig OCT dataset)
 
-3- Run data_cycled_3d_to_binary.py to provide .bin files containing the images, their segmentation and loss weights for both training and test phase. 
+3. Run data_cycled_3d_to_binary.py to provide .bin files containing the images, their segmentation and loss weights for both training and test phase. 
+
 4. In order to train of 3D-FCN (with max unpooling decoder), set the mode flag to “train” and execute:
  python FCNscratch_3d.py --model_id=3  
 
-4. In order to validate the results set the mode flag to “visualize” and execute:
+5. In order to validate the results set the mode flag to “visualize” and execute:
  python FCNscratch_3d.py --model_id=3
 
